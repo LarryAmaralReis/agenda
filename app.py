@@ -25,14 +25,14 @@ def load_user(user_id):
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), nullable=False, unique=True)
-    password = db.Column(db.String(80), nullable=False)
-    email = db.Column(db.String(80), nullable=False, unique=True)
+    username = db.Column(db.String(100), nullable=False, unique=True)
+    password = db.Column(db.String(20), nullable=False)
+    email = db.Column(db.String(500), nullable=False, unique=True)
 
 
 class RegisterForm(FlaskForm):
     username = StringField(validators=[
-        InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
+        InputRequired(), Length(min=4, max=100)], render_kw={"placeholder": "Username"})
 
     password = PasswordField(validators=[
         InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
@@ -64,6 +64,13 @@ class LoginForm(FlaskForm):
 class UpdateForm(FlaskForm):
     email = StringField(validators=[InputRequired()], render_kw={"placeholder": "Novo Email"})
     password = PasswordField(validators=[InputRequired()], render_kw={"placeholder": "Nova Senha"})
+    submit = SubmitField('Atualizar')
+
+
+class UpdateEventForm(FlaskForm):
+    title = StringField(validators=[InputRequired()], render_kw={"placeholder": "Novo Título"})
+    date_time = StringField(validators=[InputRequired()], render_kw={"placeholder": "Novo Data e Hora"})
+    description = StringField(validators=[InputRequired()], render_kw={"placeholder": "Nova Descrição"})
     submit = SubmitField('Atualizar')
 
 
@@ -103,29 +110,6 @@ def update_ids():
     con.close()
 
 
-class UpdateEventForm(FlaskForm):
-    title = StringField(validators=[InputRequired()], render_kw={"placeholder": "Novo Título"})
-    date_time = StringField(validators=[InputRequired()], render_kw={"placeholder": "Novo Data e Hora"})
-    description = StringField(validators=[InputRequired()], render_kw={"placeholder": "Nova Descrição"})
-    submit = SubmitField('Atualizar')
-
-
-@app.route('/update_event/<int:event_id>', methods=['GET','POST'])
-def update_event(event_id):
-    form = UpdateEventForm()
-    if form.validate_on_submit():
-        titulo = form.title.data
-        data_hora = form.date_time.data
-        descricao = form.description.data
-        update_event_by_id(event_id,titulo,data_hora,descricao)
-        return redirect(url_for('start'))
-    event = retrieve_event_by_id(event_id)
-    form.title.data = event[0]
-    form.date_time.data = event[1]
-    form.description.data = event[2]
-    return render_template('update_event.html', form=form, event_id=event_id)
-
-
 def update_event_by_id(event_id,titulo,data_hora,descricao):
     con = sql.connect("agenda.db")
     cur = con.cursor()
@@ -143,12 +127,13 @@ def retrieve_event_by_id(event_id):
     return event
 
 
-@app.route('/remove/<int:event_id>', methods=['POST'])
-@login_required
-def delete_event(event_id):
-    delete_event_by_id(event_id)
-    update_ids()
-    return redirect(url_for('start'))
+def retrieve_events_by_month(month, year):
+    con = sql.connect("agenda.db")
+    cur = con.cursor()
+    cur.execute("SELECT titulo, data_hora, descricao FROM eventos WHERE strftime('%m-%Y', data_hora) = ?", (f"{month:02d}-{year}",))
+    events = cur.fetchall()
+    con.close()
+    return events
 
 
 @app.route('/')
@@ -167,6 +152,20 @@ def login():
                 login_user(user)
                 return redirect(url_for('start'))
     return render_template('login.html', form=form)
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data)
+        new_user = User(username=form.username.data, password=hashed_password, email=form.email.data)
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect(url_for('login'))
+
+    return render_template('register.html', form=form)
 
 
 @app.route('/settings', methods=['GET', 'POST'])
@@ -219,30 +218,32 @@ def insert():
         return render_template('insert.html')
 
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegisterForm()
-
+@app.route('/update_event/<int:event_id>', methods=['GET','POST'])
+def update_event(event_id):
+    form = UpdateEventForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data)
-        new_user = User(username=form.username.data, password=hashed_password, email=form.email.data)
-        db.session.add(new_user)
-        db.session.commit()
-        return redirect(url_for('login'))
+        titulo = form.title.data
+        data_hora = form.date_time.data
+        descricao = form.description.data
+        update_event_by_id(event_id,titulo,data_hora,descricao)
+        return redirect(url_for('start'))
+    event = retrieve_event_by_id(event_id)
+    form.title.data = event[0]
+    form.date_time.data = event[1]
+    form.description.data = event[2]
+    return render_template('update_event.html', form=form, event_id=event_id)
 
-    return render_template('register.html', form=form)
 
-
-def retrieve_events_by_month(month, year):
-    con = sql.connect("agenda.db")
-    cur = con.cursor()
-    cur.execute("SELECT titulo, data_hora, descricao FROM eventos WHERE strftime('%m-%Y', data_hora) = ?", (f"{month:02d}-{year}",))
-    events = cur.fetchall()
-    con.close()
-    return events
+@app.route('/remove/<int:event_id>', methods=['POST'])
+@login_required
+def delete_event(event_id):
+    delete_event_by_id(event_id)
+    update_ids()
+    return redirect(url_for('start'))
 
 
 @app.route('/events/<int:month>/<int:year>', methods=['GET'])
+@login_required
 def events_by_month(month, year):
     events_db = retrieve_events_by_month(month, year)
     next_month = month + 1 if month < 12 else 1
