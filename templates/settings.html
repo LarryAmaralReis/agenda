@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css" media="all">
+    <title>Sua conta</title>
+</head>
+
+<body>
+    <h1>Agenda</h1>
+    <form>
+        <button type="submit" style="background-color: black"><a style="color: white">Usuário</a></button>
+    </form>
+    <br>
+    <form method="POST" action="{{ url_for('settings') }}">
+        {{ form.hidden_tag() }}
+        {{ form.email(class="form-control") }}
+        <br><br>
+        {{ form.password(class="form-control") }}
+        <br><br>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+    <br>
+    <form action="/delete">
+        <button type="submit" style="background-color: black"><a style="color: white">Excluir conta</a></button>
+    </form>
+    <br>
+    <form action="/logout">
+        <button type="submit" style="background-color: black"><a style="color: white">Deslogar</a></button>
+    </form>
+    <br>
+    <form method="POST" action="/start">
+        <button type="submit" style="background-color: black"><a style="color: white">Voltar</a></button>
+    </form>
+</body>
+
+</html>

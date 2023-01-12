@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css" media="all">
+    <title>Registro</title>
+</head>
+
+<body>
+    <h1>Agenda</h1>
+
+    <table align="center">
+        <tr>
+            <td>
+                <form action="/login">
+                    <button type="submit" style="background-color: white"><a style="color: black">Login</a></button>
+                </form>
+            </td>
+            <td>
+                <form action="">
+                    <button type="submit" style="background-color: black"><a style="color: white">Registro</a></button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {{ form.username }}
+        <p></p>
+        {{ form.email }}
+        <p></p>
+        {{ form.password }}
+        <p></p>
+        {{ form.submit }}
+        <p></p>
+    </form>
+</body>
+
+</html>

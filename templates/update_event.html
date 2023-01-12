@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css" media="all">
+    <title>Atualizar Evento</title>
+</head>
+
+<body>
+    <h1 style="text-align:center;">Atualizar Evento</h1>
+    <form method="POST" action="{{ url_for('update_event', event_id=event_id) }}">
+      {{ form.hidden_tag() }}
+      <label for="title">Título</label>
+      <input type="text" name="title" id="title" value="{{ form.title.data }}" required/>
+      <br>
+      <label for="date_time">Data / Hora</label>
+      <input type="datetime-local" name="date_time" id="date_time" value="{{ form.date_time.data }}" required/>
+      <br>
+      <label for="description">Descrição</label>
+      <input type="text" name="description" id="description" value="{{ form.description.data }}" required/>
+      <br><br>
+      <input type="submit" class="button" value="Atualizar"/>
+    </form>
+    <form method="POST" action="/start">
+        <button type="submit" style="background-color: black; margin-top:10px;"><a style="color: white">Voltar</a></button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+
+html {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height:1.5;
+	font-size:1em;
+}
+
+body {
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+html, body {
+	height:100%;
+}
+
+input,table,td, button {
+  border: 3px solid #000;
+  border-radius: 5px;
+  height: 40px;
+  line-height: normal;
+  color: #282828;
+  box-sizing: border-box;
+  user-select: auto;
+  font-size: 16px;
+    text-align: center;
+}
+
+::placeholder {
+	color:#cbd0d5;
+}
+
+
+
