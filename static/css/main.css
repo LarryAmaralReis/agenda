@@ -6,6 +6,8 @@ html {
 }
 
 body {
+    margin: initial;
+    padding-top: 80px;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
@@ -13,6 +15,7 @@ body {
 
 html, body {
 	height:100%;
+    background-color: #ffffff;
 }
 
 input,table,td, button {
@@ -27,9 +30,37 @@ input,table,td, button {
     text-align: center;
 }
 
-::placeholder {
-	color:#cbd0d5;
+header {
+    position: fixed; /* makes the header stay in the same position while scrolling */
+    top: 0; /* positions the header at the top of the screen */
+    width: 100%; /* makes the header take up the full width of the screen */
+    z-index: 1; /* ensures the header is on top of other elements */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
 }
 
+.icon-size {
+    font-size: 30px;
+}
 
+.header-right{
+    border: 3px solid #ffffff;
+}
 
+.selected {
+    border: solid white;
+    background-color: white;
+}
+
+td.selected {
+    background-color: black;
+    color: white;
+}
+
+td.event {
+    background-color: #545453;
+    color: white;
+}

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../static/css/main.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/main.css" rel="stylesheet" type="text/css" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--TOP UP-->
     <script>
     $(document).ready(function() {
       var currentDate = new Date();
@@ -111,26 +112,32 @@ function renderCalendar(month, year) {
       renderCalendar(currentMonth, currentYear);
     });
     </script>
-    <title>Start</title>
+    <title>Date</title>
 </head>
-
 <body>
     <header>
-        <nav>
-        </nav>
-        <nav>
-            <h1 style="color: black">Agenda </h1>
-        </nav>
-        <nav>
-            <div>
-                <form method="POST" action="/settings" style="text-align: end">
-                    <button type="submit" class="account-btn header-right" style="background-color: white">
-                        <i class="fas fa-user-circle icon-size"></i>
-                    </button>
-                </form>
-            </div>
-        </nav>
-    </header>
+            <nav>
+                <div>
+                    <form method="POST" action="/start" style="text-align: initial">
+                        <button type="submit" class="back-btn header-right" style="background-color: white">
+                            <i class="fas fa-arrow-left icon-size"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+            <nav>
+                <h1 style="color: black">Agenda </h1>
+            </nav>
+            <nav>
+                <div>
+                    <form method="POST" action="/settings" style="text-align: end">
+                        <button type="submit" class="account-btn header-right" style="background-color: white">
+                            <i class="fas fa-user-circle icon-size"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </header>
     <table align="center">
         <tr>
             <th>
@@ -138,7 +145,7 @@ function renderCalendar(month, year) {
             </th>
             <th>
                 <form>
-                <button type="submit" style="background-color: black"><a style="color: white"><div id="month"></div></a></button>
+                    <button type="submit" style="background-color: black"><a style="color: white"><div id="month"></div></a></button>
                 </form>
             </th>
             <th>
@@ -147,7 +154,7 @@ function renderCalendar(month, year) {
         </tr>
     </table>
     <div id="calendar" align="center">
-      <table id="calendar-body">
+      <table id="calendar-body" style="background-color: white">
         <thead>
           <tr>
             <th>D</th>
@@ -163,38 +170,24 @@ function renderCalendar(month, year) {
       </table>
     </div>
     <div class="eventos" align="center">
-      <h2>Eventos</h2>
-          <table>
-            <thead>
+    <h2>Eventos do dia {{ day }}/{{ month }}/{{ year }}</h2>
+    <br>
+    <table>
+        <thead>
+        <tr>
+            <th>Título</th>
+            <th>Data e hora</th>
+            <th>Descrição</th>
+        </tr>
+        </thead>
+    <tbody>
+            {%for evento in eventos%}
               <tr>
-                <th>Título</th>
-                <th>Data e hora</th>
-                <th>Descrição</th>
-                  <th>Ação</th>
+                <td>{{ evento[0] }}</td><td>{{ evento[1] }}</td><td>{{ evento[2] }}</td>
               </tr>
-            </thead>
-            <tbody>
-                    {%for evento in eventos%}
-                      <tr>
-                        <td>{{ evento[0] }}</td><td>{{ evento[1] }}</td><td>{{ evento[2] }}</td>
-                        <td>
-                            <form method="GET" action="{{url_for('update_event', event_id=loop.index)}}">
-                            <input type="submit" value="Atualizar" >
-                          </form>
-                          <form method="POST" action="/remove/{{ loop.index }}">
-                            <input type="submit" value="Excluir" onclick="return confirm('Tem certeza que deseja excluir este evento?');">
-                          </form>
-                        </td>
-                      </tr>
-                    {%endfor%}
-            </tbody>
-          </table>
-    <br>
-        <form action="/insert">
-            <button type="submit" style="background-color: black"><a style="color: white">Novo evento</a></button>
-        </form>
+            {%endfor%}
+    </tbody>
+    </table>
     </div>
-    <br>
 </body>
-
 </html>
