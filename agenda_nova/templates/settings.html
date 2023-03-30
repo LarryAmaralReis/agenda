@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <title>Sua conta</title>
+</head>
+
+<body>
+    <header>
+            <nav>
+                <div>
+                    <form method="POST" action="/home" style="text-align: initial">
+                        <button type="submit" class="back-btn header-right" style="background-color: white">
+                            <i class="fas fa-arrow-left icon-size"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+            <nav>
+                <h1 style="color: black">Agenda </h1>
+            </nav>
+            <nav>
+                <div>
+                    <form method="GET" action="/settings" style="text-align: end">
+                        <button type="submit" class="account-btn header-right" style="background-color: white">
+                            <i class="fas fa-user-circle icon-size"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+    <form>
+        <button type="submit" style="background-color: black"><a style="color: white">Usuário</a></button>
+    </form>
+    <br>
+  <form method="POST" action="" style="display: inline-block;">
+        <label>Nome</label>
+        <input type="text" name="user_nome" id="user_nome" value="{{ usuario['user_nome'] }}" required/>
+        <br><br>
+        <label>E-mail</label>
+        <input type="email" name="user_email" id="user_email" value="{{ usuario['user_email'] }}" required/>
+        <br><br>
+        <label>Senha</label>
+        <input type="password" name="user_senha" id="user_senha" value="{{ usuario['user_senha'] }}" required/>
+        <br><br>
+        <input type="submit" class="button" value="Atualizar"/>
+        <br><br>
+        <input type="hidden" name="user_id" value="{{ usuario['user_id'] }}">
+    </form>
+
+
+
+    <br>
+    <form action="/settings/delete">
+        <button type="submit" style="background-color: black"><a style="color: white">Excluir conta</a></button>
+    </form>
+    <br>
+    <form action="/settings/logout">
+        <button type="submit" style="background-color: black"><a style="color: white">Deslogar</a></button>
+    </form>
+</body>
+
+</html>

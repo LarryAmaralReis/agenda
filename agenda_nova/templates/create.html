@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/main.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <title>Inserir Evento</title>
+</head>
+
+<body>
+    <header>
+            <nav>
+                <div>
+                    <form method="POST" action="/home" style="text-align: initial">
+                        <button type="submit" class="back-btn header-right" style="background-color: white">
+                            <i class="fas fa-arrow-left icon-size"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+            <nav>
+                <h1 style="color: black">Agenda </h1>
+            </nav>
+            <nav>
+                <div>
+                    <form method="POST" action="/settings" style="text-align: end">
+                        <button type="submit" class="account-btn header-right" style="background-color: white">
+                            <i class="fas fa-user-circle icon-size"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+    <form>
+        <button type="submit" style="background-color: black"><a style="color: white">Evento</a></button>
+    </form>
+    <br>
+    	<div class="box" align="center">
+  			<form method="POST" action="">
+    			<input type="text" name="evento_titulo" id="evento_titulo" placeholder="Titulo" required/>
+    			<br><br>
+                <input type="datetime-local" name="evento_data_hora" id="evento_data_hora" placeholder="Data / Hora" required/>
+    			<br><br>
+    			<input type="text" name="evento_descricao" id="evento_descricao" placeholder="Descricao" required/>
+    			<br><br>
+    			<input type="submit" class="button" value="Criar evento"/>
+  			</form>
+		</div>
+    <br>
+
+</body>
+
+</html>

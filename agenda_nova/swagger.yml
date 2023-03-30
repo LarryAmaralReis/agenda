@@ -18,10 +18,35 @@ components:
           type: "string"
         user_id:
           type: "string"
+    Event:
+      type: "object"
+      required:
+        - evento_id
+      properties:
+        evento_id:
+          type: integer
+        evento_titulo:
+          type: "string"
+        evento_data_hora:
+          type: "string"
+          format: date-time
+        evento_descricao:
+          type: "string"
+        evento_status:
+          type: integer
+        user_id:
+          type: integer
   parameters:
     user_id:
       name: "user_id"
       description: "ID of the person to get"
+      in: path
+      required: True
+      schema:
+        type: "string"
+    evento_id:
+      name: "evento_id"
+      description: "ID of the event to get"
       in: path
       required: True
       schema:
@@ -93,6 +118,72 @@ paths:
       responses:
         "204":
           description: "Successfully deleted user"
+
+  /event:
+    get:
+      operationId: "event.read_all"
+      tags:
+        - "Event"
+      summary: "Read the list of events"
+      responses:
+        "200":
+          description: "Sucessfully read event list"
+    post:
+      operationId: "event.create"
+      tags:
+        - "Event"
+      summary: "Create a new event"
+      requestBody:
+        description: "Event to create"
+        required: true
+        content:
+          application/json:
+            schema:
+              x-body-name: "event"
+              $ref: "#/components/schemas/Event"
+      responses:
+        "201":
+          description: "Sucessfully created event"
+
+  /event/{evento_id}:
+    get:
+      operationId: "event.read_one"
+      tags:
+        - "Event"
+      summary: "Read one event"
+      parameters:
+        - $ref: "#/components/parameters/evento_id"
+      responses:
+        "200":
+          description: "Successfully read event"
+
+    put:
+      tags:
+        - "Event"
+      operationId: "event.update"
+      summary: "Update a event"
+      parameters:
+        - $ref: "#/components/parameters/evento_id"
+      responses:
+        "200":
+          description: "Successfully updated event"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-body-name: "event"
+              $ref: "#/components/schemas/Event"
+
+    delete:
+      tags:
+        - "Event"
+      operationId: "event.delete"
+      summary: "Delete a event"
+      parameters:
+        - $ref: "#/components/parameters/evento_id"
+      responses:
+        "204":
+          description: "Successfully deleted event"
 
 
 

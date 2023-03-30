@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/main.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Atualizar Evento</title>
+</head>
+
+<body>
+    <header>
+            <nav>
+                <div>
+                    <form method="POST" action="/home" style="text-align: initial">
+                        <button type="submit" class="back-btn header-right" style="background-color: white">
+                            <i class="fas fa-arrow-left icon-size"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+            <nav>
+                <h1 style="color: black">Agenda </h1>
+            </nav>
+            <nav>
+                <div>
+                    <form method="GET" action="/settings" style="text-align: end">
+                        <button type="submit" class="account-btn header-right" style="background-color: white">
+                            <i class="fas fa-user-circle icon-size"></i>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+    <form>
+        <button type="submit" style="background-color: black"><a style="color: white">Evento</a></button>
+    </form>
+    <br>
+<form method="POST" action="">
+  <label>Título</label>
+    <input type="text" name="evento_titulo" id="evento_titulo" value="{{ evento.evento_titulo }}" required/>
+  <br><br>
+  <label>Data / Hora</label>
+    <input type="datetime-local" name="evento_data_hora" id="evento_data_hora" value="{{ evento.evento_data_hora }}" required/>
+  <br><br>
+  <label>Descrição</label>
+    <input type="text" name="evento_descricao" id="evento_descricao" value="{{ evento.evento_descricao }}" required/>
+  <br><br>
+    <input type="submit" class="button" value="Atualizar"/>
+  <input type="hidden" name="evento_id" value="{{ evento.id }}">
+</form>
+
+
+
+
+</body>
+
+</html>

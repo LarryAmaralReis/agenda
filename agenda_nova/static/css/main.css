@@ -1,0 +1,66 @@
+
+html {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	line-height:1.5;
+	font-size:1em;
+}
+
+body {
+    margin: initial;
+    padding-top: 80px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+html, body {
+	height:100%;
+    background-color: #ffffff;
+}
+
+input,table,td, button {
+  border: 3px solid #000;
+  border-radius: 5px;
+  height: 40px;
+  line-height: normal;
+  color: #282828;
+  box-sizing: border-box;
+  user-select: auto;
+  font-size: 16px;
+    text-align: center;
+}
+
+header {
+    position: fixed; /* makes the header stay in the same position while scrolling */
+    top: 0; /* positions the header at the top of the screen */
+    width: 100%; /* makes the header take up the full width of the screen */
+    z-index: 1; /* ensures the header is on top of other elements */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.icon-size {
+    font-size: 30px;
+}
+
+.header-right{
+    border: 3px solid #ffffff;
+}
+
+.selected {
+    border: solid white;
+    background-color: white;
+}
+
+td.selected {
+    background-color: black;
+    color: white;
+}
+
+td.event {
+    background-color: #545453;
+    color: white;
+}

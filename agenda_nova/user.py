@@ -1,8 +1,10 @@
 from datetime import datetime
 from flask import abort, make_response
 
+
 def get_timestamp():
-    return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 
 USER = {
     "1000": {
@@ -21,6 +23,7 @@ USER = {
         "timestamp": get_timestamp(),
     }
 }
+
 
 def read_all():
     return list(USER.values())
