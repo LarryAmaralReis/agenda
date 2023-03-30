@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbcbf906-19e8-4f15-9898-87dc6eaf021a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/agenda_nova/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_antiga/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_antiga/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_antiga/.idea/Python-Flask-Authentication-Tutorial-main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_antiga/.idea/flaskProject.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_antiga/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_antiga/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_antiga/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_antiga/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_antiga/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_antiga/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_antiga/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_antiga/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_antiga/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_antiga/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_antiga/agenda.db" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_antiga/agenda.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_nova/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_nova/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_nova/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_nova/swagger.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_nova/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_nova/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agenda_nova/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/agenda_nova/user.py" afterDir="false" />
-    </list>
+    <list default="true" id="fbcbf906-19e8-4f15-9898-87dc6eaf021a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +57,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "inlay.hints",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -195,7 +180,7 @@
       <workItem from="1680088374281" duration="1983000" />
       <workItem from="1680090408905" duration="1281000" />
       <workItem from="1680096833407" duration="23285000" />
-      <workItem from="1680172056035" duration="31606000" />
+      <workItem from="1680172056035" duration="32198000" />
     </task>
     <servers />
   </component>
@@ -206,7 +191,7 @@
     <SUITE FILE_PATH="coverage/agenda$Python_Flask.coverage" NAME="Python-Flask Coverage Results" MODIFIED="1679938711652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/agenda$Flask__agenda_antiga_app_py_.coverage" NAME="Flask (agenda_antiga/app.py) Coverage Results" MODIFIED="1679937228176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/agenda$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1676326913122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/agenda$main.coverage" NAME="main Coverage Results" MODIFIED="1680205614932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agenda_nova" />
+    <SUITE FILE_PATH="coverage/agenda$main.coverage" NAME="main Coverage Results" MODIFIED="1680206279125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agenda_nova" />
     <SUITE FILE_PATH="coverage/Python_Flask_Authentication_Tutorial_main$Python_Flask_Authentication_Tutorial_main.coverage" NAME="Python-Flask-Authentication-Tutorial-main Coverage Results" MODIFIED="1673275542540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/agenda$eee.coverage" NAME="eee Coverage Results" MODIFIED="1679938507575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agenda_nova" />
     <SUITE FILE_PATH="coverage/agenda$Python_Flask_Authentication_Tutorial_main.coverage" NAME="main Coverage Results" MODIFIED="1679938902188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/agenda_nova" />
