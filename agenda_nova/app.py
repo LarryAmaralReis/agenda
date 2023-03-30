@@ -40,7 +40,7 @@ def login():
             return redirect(url_for('home'))
         else:
             # se as credenciais forem inválidas, retornar um erro
-            return {'erro': 'Credenciais inválidas.'}, 401
+            return {'erro': 'Credenciais invalidas.'}, 401
     else:
         return render_template('login.html')
 
